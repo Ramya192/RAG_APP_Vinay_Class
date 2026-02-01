@@ -138,6 +138,13 @@ def init_session_state():
             "openai": os.environ.get("OPENAI_API_KEY", ""),
         }
 
+        st.session_state.api_keys["openai"] = st.text_input(
+            "OpenAI API Key (for LLM)",
+            type="password",
+            value="",
+            help="Used for agent reasoning (CrewAI) and embeddings (LangChain)."
+        )
+
     if "user_name" not in st.session_state:
         st.session_state.user_name = "Researcher"
 
